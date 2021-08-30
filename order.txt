@@ -1,0 +1,26 @@
+符号约定：命令中<>部分由用户指定
+/******本地仓库的创建和提交***********/
+一、创建仓库：
+	1.从远程拷贝仓库：git clone <远程仓库的网址>
+	2.在本地新建仓库：
+		①新建文件夹：mkdir <文件夹名>：在指定路径中打开Git Bash,而后使用此命令
+		②初始化： git init：使用此命令会在当前路径下创建一个.git文件夹，默认不可见。
+二、在工作区(working directory)，即当前路径下创建文件：
+	touch <文件名>
+三、将工作区文件添加到暂存区：
+ 	git add <文件名>
+ 	git add --all
+四、将暂存区文件添加到本地仓库：
+	 git commit -m “<提交描述>”：其中-m代表“message”
+
+
+/*************本地仓库向远程仓库提交****************/
+一、将本地仓库和远程仓库相关联(采用SSH)
+ git remote add origin <SSH链接>：其中origin代表远程仓库，SSH链接为远程仓库
+二、若本地仓库为本地创建而非拷贝远程仓库创建，本地仓库中会缺少README.md文件，需要先进行代码合并：
+ git pull --rebase origin master
+ 其中pull=fetch+merge，执行完上述指令后会把远程仓库的代码复制到本地仓库
+三、上传代码
+ git push <远程主机名> <本地分支名> <远程分支名>
+ git push -u origin master
+ 其中-u是--set-upstream的缩写。
