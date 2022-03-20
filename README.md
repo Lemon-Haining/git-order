@@ -1,2 +1,2 @@
-# git-order
-git orders frequently used
+# order
+orders frequently used
